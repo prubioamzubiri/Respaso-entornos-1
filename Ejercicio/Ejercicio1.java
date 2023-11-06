@@ -26,10 +26,10 @@ public class Ejercicio1 {
         {
             for(int j=0;j<lista.size()-1;j++)
             {
-                if(lista.get(j)>lista.get(i))
+                if(lista.get(j)>lista.get(j +1))
                 {
                     int aux = lista.get(j);
-                    lista.set(j, lista.get(j));
+                    lista.set(j, lista.get(j + 1));
                     lista.set(j+1, aux);
                 }
             }
