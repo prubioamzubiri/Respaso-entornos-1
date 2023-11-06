@@ -14,23 +14,19 @@ public class Ejercicio1 {
         Scanner sc = new Scanner(System.in);
 
         //Mientras que la entrada sea mayor que 0, se añade a la lista si es par
-        while((entrada = sc.nextInt()) > 0)
-        {
-            if(entrada%2==0)
-            {
+        while((entrada = sc.nextInt()) > 0) {
+            if(entrada%2==0) {
                 lista.add(entrada);
             }
         }
 
-        for(int i=0;i<lista.size();i++)
-        {
-            for(int j=0;j<lista.size()-1;j++)
-            {
-                if(lista.get(j)>lista.get(i))
-                {
+        //error dentro del if con los indices de los j
+        for(int i=0;i<lista.size();i++) {
+            for(int j=0;j<lista.size()-1;j++) {
+                if(lista.get(j)>lista.get(j + 1)) {
                     int aux = lista.get(j);
-                    lista.set(j, lista.get(j));
-                    lista.set(j+1, aux);
+                    lista.set(j, lista.get(j + 1));
+                    lista.set(j + 1, aux);
                 }
             }
         }
