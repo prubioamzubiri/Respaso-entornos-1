@@ -35,9 +35,8 @@ public class Ejercicio1 {
             }
         }
 
-        for(int i=0;i<lista.size();i++)
-        {
-            System.out.println(lista.get(i));
+        for (Integer integer : lista) {
+            System.out.println(integer);
         }
 
     }
