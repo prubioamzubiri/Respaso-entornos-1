@@ -13,6 +13,8 @@ public class Ejercicio1 {
 
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Introduce un número");
+
         //Mientras que la entrada sea mayor que 0, se añade a la lista si es par
         while((entrada = sc.nextInt()) > 0)
         {
@@ -20,25 +22,29 @@ public class Ejercicio1 {
             {
                 lista.add(entrada);
             }
+            System.out.println("Introduce otro número");
         }
 
-        for(int i=0;i<lista.size();i++)
-        {
-            for(int j=0;j<lista.size()-1;j++)
-            {
-                if(lista.get(j)>lista.get(i))
-                {
-                    int aux = lista.get(j);
-                    lista.set(j, lista.get(j));
-                    lista.set(j+1, aux);
+        boolean repeat = true;
+        while(repeat){
+            boolean areChanges = false;
+            for(int i = 0; i < lista.size() - 1; i++){
+                int primero = lista.get(i);
+                int segundo = lista.get(i + 1);
+                if(segundo > primero){
+                    lista.set(i, segundo);
+                    lista.set(i + 1, primero);
+                    areChanges = true;
                 }
             }
+            repeat = areChanges == true ? true : false;
         }
 
-        for(int i=0;i<lista.size();i++)
+        for(int i = 0; i < lista.size(); i++)
         {
-            System.out.println(lista.get(i));
+            System.out.print(i == lista.size() - 1 ? lista.get(i) : lista.get(i) + ", ");
         }
+        System.out.println();
 
     }
 }
