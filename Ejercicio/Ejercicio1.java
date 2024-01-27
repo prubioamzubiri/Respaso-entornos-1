@@ -16,29 +16,46 @@ public class Ejercicio1 {
         //Mientras que la entrada sea mayor que 0, se añade a la lista si es par
         while((entrada = sc.nextInt()) > 0)
         {
-            if(entrada%2==0)
+            if(entrada % 2 == 0)
             {
                 lista.add(entrada);
             }
         }
 
+        ordenar(lista);
+
+        imprimir(lista);
+
+    }
+
+    public static void ordenar(List<Integer> lista)
+    {
         for(int i=0;i<lista.size();i++)
         {
             for(int j=0;j<lista.size()-1;j++)
             {
-                if(lista.get(j)>lista.get(i))
+                if(lista.get(j)<lista.get(i))
                 {
-                    int aux = lista.get(j);
-                    lista.set(j, lista.get(j));
-                    lista.set(j+1, aux);
+                    intercambiar(lista, i, i);
                 }
             }
         }
+    }
 
-        for(int i=0;i<lista.size();i++)
+    public static void intercambiar(List lista, int a, int b)
+    {
+        int aux = (int) lista.get(a);
+        lista.set(a, lista.get(a));
+        lista.set(b, aux);
+    }
+
+    public static void imprimir(List lista)
+    {
+        int i = 0;
+
+        while(i<lista.size())
         {
             System.out.println(lista.get(i));
         }
-
     }
 }
